@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "id": "netheriteelytra",
+  "version": "${version}",
+  "name": "Netherite Plated Elytra",
+  "description": "Agrega un elytra mejorado con netherita: se craftea en la mesa de herrería (plantilla de netherita + elytra + lingote de netherita), no se quema en lava/fuego, da +4 de armadura y tiene el doble de durabilidad (864).",
+  "authors": [
+    "Modpack MC 26.2"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "netheriteelytra.NetheriteElytraMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.18.4",
+    "minecraft": "${minecraft_dep}",
+    "fabric-api": "*"
+  }
+}

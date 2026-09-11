@@ -1,0 +1,40 @@
+plugins {
+    // MC 26.x se publica SIN ofuscar: se usa el plugin "no-remap" de Loom
+    // (net.fabricmc.fabric-loom), que NO necesita mappings ni `modImplementation`.
+    // El plugin viejo (fabric-loom / fabric-loom-remap) es para versiones ofuscadas.
+    id 'net.fabricmc.fabric-loom' version '1.17.20'
+}
+
+version = project.mod_version
+group = 'netheriteelytra'
+base { archivesName = 'netherite-plated-elytra' }
+
+// El jar declara compatibilidad con la version para la que se compilo.
+def mcDep = "~${project.minecraft_version}"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    implementation "net.fabricmc:fabric-loader:0.19.5"
+    // Fabric API ya va en cliente y servidor del pack. Ademas de darnos utilidades,
+    // es imprescindible en runtime: en 26.x los registries se congelan en
+    // Bootstrap.bootStrap() ANTES de que corra onInitialize(), y es Fabric API
+    // (fabric-registry-sync-v0) quien difiere ese freeze para poder registrar items.
+    // Ver tambien `depends` en fabric.mod.json.
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_api_version}"
+}
+
+java {
+    toolchain { languageVersion = JavaLanguageVersion.of(25) }
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "minecraft_dep", mcDep
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version, "minecraft_dep": mcDep
+    }
+}
