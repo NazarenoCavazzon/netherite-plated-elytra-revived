@@ -21,3 +21,6 @@ bin/
 # OS
 .DS_Store
 Thumbs.db
+
+# Notas internas de publicación (solo local)
+PUBLISHING.md
