@@ -1,8 +1,8 @@
 <div align="center">
 
-<img src="art/mod_icon_512.png" width="180" alt="Netherite Plated Elytra">
+<img src="art/mod_icon_512.png" width="180" alt="Netherite Plated Elytra Revived">
 
-# Netherite Plated Elytra
+# Netherite Plated Elytra Revived
 
 **An upgraded elytra for Minecraft 26.1.2 / 26.2 (Fabric).**
 
